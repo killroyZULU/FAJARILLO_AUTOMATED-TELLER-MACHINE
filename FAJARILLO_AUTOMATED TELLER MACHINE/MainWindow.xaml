@@ -1,0 +1,63 @@
+﻿<Window x:Class="FAJARILLO_AUTOMATED_TELLER_MACHINE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FAJARILLO_AUTOMATED_TELLER_MACHINE"
+        xmlns:Display="clr-namespace:FAJARILLO_AUTOMATED_TELLER_MACHINE.DISPLAY"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="500" ResizeMode="NoResize">
+    <Grid>
+        
+        <!-- ROW DEFINITIONS -->
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="MainScreen" Height="350" />
+            <RowDefinition x:Name="KeyPad"/>
+            <RowDefinition x:Name="InsertCardRow" Height="70"/>
+        </Grid.RowDefinitions>
+        
+        <!-- MAIN SCREEN -->
+        <Grid Grid.Row="0">
+            <Display:MainDisplay x:Name="MainDisplayControl"/>
+            <Display:SavingsWithdrawDepositExit x:Name="savingsControl" Visibility="Hidden"/>
+            <Display:DepositScreen x:Name="DepositControl" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Display:WithdrawScreen x:Name="WithdrawControl" Visibility="Hidden"/>
+
+        </Grid>
+
+        <!-- -->
+        
+
+
+        <!-- Number Buttons -->
+        <Canvas x:Name="Numbers" Grid.Row="1" IsEnabled="False" Panel.ZIndex="1">
+            <Button x:Name="Zero" Content="0" Height="68" Width="95" Canvas.Left="142" Canvas.Top="266" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_ClickNumbers" />
+            <Button x:Name="One" Content="1" Height="68" Width="95" Canvas.Left="26" Canvas.Top="21" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_ClickNumbers"/>
+            <Button x:Name="Two" Content="2" Height="68" Width="95" Canvas.Left="142" Canvas.Top="21" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="1.359,0.639" Click="Button_ClickNumbers"/>
+            <Button x:Name="Three" Content="3" Height="68" Width="95" Canvas.Left="263" Canvas.Top="21" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_ClickNumbers"/>
+            <Button x:Name="Four" Content="4" Height="68" Width="95" Canvas.Left="26" Canvas.Top="104" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_ClickNumbers"/>
+            <Button x:Name="Five" Content="5" Height="68" Width="95" Canvas.Left="142" Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_ClickNumbers"/>
+            <Button x:Name="Six" Content="6" Height="68" Width="95" Canvas.Left="263" Canvas.Top="104" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_ClickNumbers"/>
+            <Button x:Name="Seven" Content="7" Height="68" Width="95" Canvas.Left="26" Canvas.Top="186" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_ClickNumbers"/>
+            <Button x:Name="Eight" Content="8" Height="68" Width="95" Canvas.Left="142" Canvas.Top="186" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_ClickNumbers"/>
+            <Button x:Name="Nine" Content="9" Height="68" Width="95" Canvas.Left="263" Canvas.Top="186" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_ClickNumbers"/>
+        </Canvas>
+
+        <!-- (Clear / Enter / Cancel)-->
+        <Canvas x:Name="InputButtons" Grid.Row="1" IsEnabled="False" Panel.ZIndex="1">
+            <Button x:Name="Clear" Content="Clear" Height="68" Width="95" Canvas.Left="370" Canvas.Top="104" HorizontalAlignment="Center" VerticalAlignment="Top" Click="ClearPinNumber_Click"/>
+            <Button x:Name="Enter" Content="Enter" Height="68" Width="95" Canvas.Left="370" Canvas.Top="186" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.55" Click="EnterButton_Click"/>
+            <Button x:Name="Cancel" Content="Cancel" Height="68" Width="95" Canvas.Left="370" Canvas.Top="21" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Canvas>
+
+        <!-- Blank Plates -->
+        <Canvas x:Name="BlankPlates" Grid.Row="1" IsEnabled="False" Panel.ZIndex="0">
+            <Button x:Name="BlankePlate1"  Height="68" Width="95" Canvas.Left="263" Canvas.Top="266" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="BlankePlate2"  Height="68" Width="95" Canvas.Left="26" Canvas.Top="266" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="BlankePlate3"  Height="68" Width="95" Canvas.Left="370" Canvas.Top="266" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Canvas>
+
+        <!-- INSERT CARD BUTTON -->
+        <Button x:Name="InsertCardButton" Grid.Row="2" Content="Insert Card" Click="InsertCardButton_Click"/>
+    </Grid>
+</Window>

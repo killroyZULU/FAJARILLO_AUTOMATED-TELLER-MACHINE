@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="FAJARILLO_AUTOMATED_TELLER_MACHINE.DISPLAY.MainDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FAJARILLO_AUTOMATED_TELLER_MACHINE.DISPLAY"
+             mc:Ignorable="d" 
+             Height="350" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="LeftSideDisplayButtons"  Width="100"></ColumnDefinition>
+            <ColumnDefinition x:Name="MainScreen"></ColumnDefinition>
+            <ColumnDefinition x:Name="RightSideDisplayButtons" Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Canvas x:Name="LeftSideButtons" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <Button x:Name="Button1" Content=" > " Panel.ZIndex="1" Height="65" Width="72" Canvas.Left="14" Canvas.Top="36" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button x:Name="Button2" Content=" > " Panel.ZIndex="1" Height="65" Width="72" Canvas.Left="14" Canvas.Top="249" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button x:Name="Button3" Content=" > " Panel.ZIndex="1" Height="65" Width="72" Canvas.Left="14" Canvas.Top="138" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
+        </Canvas>
+
+        <Canvas x:Name="RightSideButtons" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <Button x:Name="Button4" Content=" &lt; " Panel.ZIndex="1" Height="65" Width="72" Canvas.Left="14" Canvas.Top="36" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button x:Name="Button5" Content=" &lt; " Panel.ZIndex="1" Height="65" Width="72" Canvas.Left="14" Canvas.Top="249" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <Button x:Name="Button6" Content=" &lt; " Panel.ZIndex="1" Height="65" Width="72" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="14" Canvas.Top="138" />
+        </Canvas>
+
+        <Grid x:Name="CenterDisplay" Grid.Column="1" Background="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="StartupName" Grid.Row="1" Text="{Binding UiText}" 
+               Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"
+               FontSize="20" FontWeight="DemiBold"/>
+
+            <TextBlock x:Name="InstructionTag" Grid.Row="2" Text="{Binding UiText2}" 
+               Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"
+               FontSize="15" FontWeight="Light"/>
+
+            <local:PinBox x:Name="PinBoxUI" Grid.Row="2" Visibility="Hidden"/>
+        </Grid>
+
+        <Rectangle Width="500" Height="350" Fill="LightGray" Panel.ZIndex="-1" Grid.ColumnSpan="3"/>
+        
+
+    </Grid>
+</UserControl>
